@@ -5,13 +5,14 @@ This is a dockerized application that is vulnerable to the Spring4Shell vulnerab
 
 Details: https://www.lunasec.io/docs/blog/spring-rce-vulnerabilities
 
+
 With docker-desktop, try running:
-`./buildAndRun.sh`
-`docker compose up exploit`
-`docker compose up exploitmitigated`
 
-
-
+```bash
+./buildAndRun.sh
+docker compose up exploit
+docker compose up exploitmitigated
+```
 
 ## Requirements
 
