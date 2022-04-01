@@ -7,6 +7,7 @@ RUN pip install requests && mkdir /data
 # WORKDIR /data/
 ADD exploit.py /data/exploit.py
 ENV target "172.17.0.2"
+ENV port "8080"
 
-CMD ["sh", "-c", "python /data/exploit.py --url http://${target}:8080/helloworld/greeting"]
+CMD ["sh", "-c", "sleep 10 && python /data/exploit.py --url http://${target}:${port}/helloworld/greeting"]
 

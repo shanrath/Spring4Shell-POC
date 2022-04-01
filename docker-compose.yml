@@ -1,0 +1,31 @@
+services:
+  targetspring:
+    build: .
+    ports:
+      - "8080:8080"
+
+  targetspringfixedtomcat:
+    build: 
+      context: .
+      dockerfile: DockerfileFixedTomcat
+    ports:
+      - "8090:8080"
+
+
+  exploit:
+    #image: shanrath/exploit
+    build: ./py
+    environment:
+      - target=targetspring
+    depends_on:
+      - targetspring
+
+
+  exploitmitigated:
+    #image: shanrath/exploit
+    build: ./py
+    environment:
+      - target=targetspringfixedtomcat
+    #  - port=8090
+    depends_on:
+      - targetspringfixedtomcat

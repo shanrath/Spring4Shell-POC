@@ -1,5 +1,5 @@
-FROM tomcat:9.0.59
-#9059 is not yet mitigated for the CVE
+FROM tomcat:9.0.62
+#9062 has patched tomcat version to mitigate
 
 ADD src/ /helloworld/src
 ADD pom.xml /helloworld
